@@ -1,7 +1,8 @@
-var x = 1
-var arr1 = [1,0,1];
+var x = 1;
+var o = 0;
+var arr1 = [1,0,x];
 var arr2 = [0,1,1];
-var arr3 = [1,0,0];
+var arr3 = [o,0,0];
 var turno = 1 
 var x 
 var equis ={
@@ -19,43 +20,45 @@ if(turno ==1){
 if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
 	((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
 	 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
-	alert("triqui por fila");
+	alert("triqui por fila gana 0");
 	equis.juegos = 0 ;
 }else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
 		  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
 	       ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0)))
 			{
 				equis.juegos = 0 ;
-				alert("triqui por colubna");
+				alert("triqui por colubna gana 0");
 			}else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
 			          ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
-				alert(" triqui por diagonal");
+				alert(" triqui por diagonal gana 0");
 				equis.juegos = 0 ;
 			}
 			else{
 				equis.juegos = equis.juegos - 1 ;
 				turno=2;
-		
+			}
 }
+if(turno==2){
+if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+	((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+	 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+		circulo.juegos = 0;
+		alert("triqui por fila gana la x");
+}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+		  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		   ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
+			{
+			circulo.juegos = 0;
+			alert("triqui por colubna gana la x");
+		}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+				  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+					circulo.juegos = 0;
+					alert(" triqui por diagonal gana la x");
+				}
+				else {
+					turno = 1;
+					circulo.juegos = circulo.juegos - 1;
+					alert("marrano  x!!!");
+					}
 }
-		if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
-					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
-					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
-					 	circulo.juegos = 0;
-					alert("triqui por fila gana la x");
-				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
-						  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
-					       ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
-							{
-								circulo.juegos = 0;
-								alert("triqui por colubna gana la x");
-							}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
-							          ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
-								circulo.juegos = 0;
-								alert(" triqui por diagonal gana la x");
-							}
-							else {
-								circulo.juegos = circulo.juegos - 1;
-								alert("marrano  x!!!");
-							}
 }
