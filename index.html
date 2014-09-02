@@ -10,6 +10,7 @@
 <body>
 	<header class="container">
 		<h1>Triqui</h1>
+		<div class="linea"  id="lineaaa" onclick="linea();"></div>
 	</header>
 	<section class="container app">
 		
@@ -77,8 +78,11 @@
 	//funcion que llama a el div y pone el circulo 
 
 //funcion que cambia el turno 
-function gana(){
-	
+function linea (){
+	var elle = document.querySelector('#lineaaa'); 
+	if(!elle.classList.contains('larga')){
+		elle.classList.add('larga');
+	}
 }
 var x ;
 var o ;
@@ -95,8 +99,7 @@ var circulo ={
 };
 var equixx = '<div class="equis animated rubberBand"></div>';
 var sirculo = '<div class="circulo animated rubberBand"></div>';
-
-
+if ((equis.juegos >0) && (circulo.juegos>0)) {
 	var c1 = document.querySelector('#c1');
 	c1.onclick = function(){
 		if (turno == 0) {
@@ -123,6 +126,8 @@ var sirculo = '<div class="circulo animated rubberBand"></div>';
 								equis.juegos = equis.juegos - 1 ;
 								}
 		turno = turno + 1 ;
+		console.log(equis.juegos);
+		console.log(circulo.juegos);
 		}
 		//else que cambia el turno 		
 		}else{
@@ -597,6 +602,7 @@ var sirculo = '<div class="circulo animated rubberBand"></div>';
 		}
 	}
 	}
+};
 	if ((equis.juegos == 0) && (circulo.juegos == 0)) {
 		alert("Los turnos expiraron");
 	};
