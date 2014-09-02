@@ -63,7 +63,7 @@
 
 				<div class="col-sm-4">
 					<div class="item" id="c9" onclick="tuno();">
-						<div class="equis"></div>
+
 					</div>
 				</div>
 
@@ -73,141 +73,533 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	
 	<script>
-	turrno = 0;
+	turno = 0;
 	//funcion que llama a el div y pone el circulo 
 
 //funcion que cambia el turno 
-function tuno(){
-	
+function gana(){
 	
 }
-var equis
-	var c1 = document.querySelector('#c1');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c1.onclick = function(){
-		if (turrno == 0) {
-		while(turrno <= 0){
-			turrno = turrno + 1 ;
-			console.log(turrno);
-			this.innerHTML += sirculo;
-			
-		}
-	}else{
-		while(turrno > 0){
-			turrno = turrno - 1 ;
-			console.log(turrno);
-				this.innerHTML += equis;
-		}
-	}
-	;
-		
-	}
-	var c2 = document.querySelector('#c2');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c2.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-	var c3 = document.querySelector('#c3');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c3.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-	var c4 = document.querySelector('#c4');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c4.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-	var c5 = document.querySelector('#c5');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c5.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-		var c6 = document.querySelector('#c6');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c6.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-	var c7 = document.querySelector('#c7');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c7.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-	var c8 = document.querySelector('#c8');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c8.onclick = function(){
-		this.innerHTML += sirculo;
-	}				
-	var c9 = document.querySelector('#c9');
-	var sirculo = '<div class="circulo animated rubberBand"></div>';
-	c9.onclick = function(){
-		this.innerHTML += sirculo;
-	}
-
-var x = 1;
-var o = 0;
-var arr1 = [1,0,x];
-var arr2 = [0,1,1];
-var arr3 = [o,0,0];
-var turno = 1 ;
 var x ;
-var equis ={
-	puntos : 0,
-	juegos : 5,
-}
+var o ;
+var arr1 = [x,x,x];
+var arr2 = [x,x,x];
+var arr3 = [x,x,x];
+var equis={
+	puntos :0,
+	juegos:4,
+};
 var circulo ={
 	puntos : 0,
-	juegos : 4,
-}
+	juegos : 5,
+};
+var equixx = '<div class="equis animated rubberBand"></div>';
+var sirculo = '<div class="circulo animated rubberBand"></div>';
 
-while(equis.juegos > 0 && circulo.juegos > 0) {
-if(turno ==1){
-//Condiciones queevaluan que esten tres campos seguidos para ganar		
-if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
-	((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
-	 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
-	alert("triqui por fila gana 0");
-	equis.juegos = 0 ;
-}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
-		  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
-	       ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0)))
-			{
-				equis.juegos = 0 ;
-				alert("triqui por colubna gana 0");
-			}else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
-			          ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
-				alert(" triqui por diagonal gana 0");
-				equis.juegos = 0 ;
-			}
-			else{
-				equis.juegos = equis.juegos - 1 ;
-				turno=2;
-			}
-}
-if(turno==2){
-if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
-	((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
-	 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
-		circulo.juegos = 0;
-		alert("triqui por fila gana la x");
-}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
-		  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
-		   ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
-			{
-			circulo.juegos = 0;
-			alert("triqui por colubna gana la x");
-		}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
-				  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+
+	var c1 = document.querySelector('#c1');
+	c1.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr1[0]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+			if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;
+		}
+		//else que cambia el turno 		
+		}else{
+		while(turno > 0){
+				arr1[0]=1;
+				console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+	 				 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+					  circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+		  					((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		  					 ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1))){
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+				  					((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+									circulo.juegos = 0;
+									alert(" triqui por diagonal gana la x");
+									}
+								else {
+										circulo.juegos = circulo.juegos - 1;
+
+										}
+		turno = turno - 1 ;			
+		}
+	}
+	}
+	var c2 = document.querySelector('#c2');
+	c2.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr1[1]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;						
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr1[1]=1;
+				console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+						  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		 				  ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
+							{
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+								  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+									circulo.juegos = 0;
+									alert(" triqui por diagonal gana la x");
+								}
+								else {
+									circulo.juegos = circulo.juegos - 1;
+									}
+			turno = turno - 1 ;			
+		}
+	}
+	}
+	var c3 = document.querySelector('#c3');
+	c3.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+		arr1[2]=0;	
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+					((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 				 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+						alert("triqui por fila gana 0");
+						equis.juegos = 0 ;
+				}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;						
+		}
+	//else que cambia el turno 		
+	}else{
+		while(turno > 0){
+		arr1[2]=1;	
+				console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+		  				((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		  				 ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1))){
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+								  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+													circulo.juegos = 0;
+									alert(" triqui por diagonal gana la x");
+								}
+								else {
+									circulo.juegos = circulo.juegos - 1;
+									}
+		turno = turno - 1 ;
+		}
+	}
+	}
+	var c4 = document.querySelector('#c4');
+	c4.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr2[0]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+					((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 	 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+							alert("triqui por fila gana 0");
+							equis.juegos = 0 ;
+				}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+	    turno = turno + 1 ;
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr2[0]=1;
+			console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+		 				 ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		  				 ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1))){
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+				 				 ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+									circulo.juegos = 0;
+									alert(" triqui por diagonal gana la x");
+						}
+						else {
+								circulo.juegos = circulo.juegos - 1
+						}
+		turno = turno - 1 ;			
+		}
+	}
+	}
+	var c5 = document.querySelector('#c5');
+	c5.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr2[1]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;						
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr2[1]=1;
+				console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+		 				 ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		  				 ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
+							{
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+								  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+									circulo.juegos = 0;
+									alert(" triqui por diagonal gana la x");
+								}
+								else {
+									circulo.juegos = circulo.juegos - 1;
+									}
+		turno = turno - 1 ;			
+		}
+	}
+	}
+	var c6 = document.querySelector('#c6');
+	c6.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr2[2]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;	
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+			turno = turno + 1 ;					
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr2[2]=1;
+			console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+				 	 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+				  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+				   ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1))){
+						circulo.juegos = 0;
+						alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+								  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+								circulo.juegos = 0;
+								alert(" triqui por diagonal gana la x");
+						}
+						else {
+								circulo.juegos = circulo.juegos - 1
+								}
+		turno = turno - 1 ;			
+		}
+	}
+	}
+	var c7 = document.querySelector('#c7');
+	c7.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr3[0]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;						
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr3[0]=1;
+				console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+						  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		 					  ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1))){
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+				  					((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+										circulo.juegos = 0;
+										alert(" triqui por diagonal gana la x");
+								}
+								else {
+									circulo.juegos = circulo.juegos - 1;
+									}
+			turno = turno - 1 ;			
+		}
+	}
+	}
+	var c8 = document.querySelector('#c8');
+	c8.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr3[1]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;						
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr3[1]=1;
+			console.log(turno);
+				this.innerHTML += equixx;
+				if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+					((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+					 ((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
+						circulo.juegos = 0;
+						alert("triqui por fila gana la x");
+				}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+						  ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+						   ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
+						{
+							circulo.juegos = 0;
+							alert("triqui por colubna gana la x");
+						}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+								  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+									circulo.juegos = 0;
+									alert(" triqui por diagonal gana la x");
+								}
+								else {
+									circulo.juegos = circulo.juegos - 1;
+									}
+		turno = turno - 1 ;			
+		}
+	}
+	};				
+	var c9 = document.querySelector('#c9');
+	c9.onclick = function(){
+		if (turno == 0) {
+		while(turno <= 0){
+			arr3[2]=0;
+			console.log(turno);
+			this.innerHTML += sirculo;
+				if (((arr1[0] == 0) && (arr1[1] == 0) && (arr1[2] == 0)) || 
+				((arr2[0] == 0) && (arr2[1] == 0) && (arr2[2] == 0)) ||
+	 			 ((arr3[0] == 0) && (arr3[1] == 0) && (arr3[2] == 0))) {
+					alert("triqui por fila gana 0");
+					equis.juegos = 0 ;
+			}else if (((arr1[0] == 0) && (arr2[0] == 0) && (arr3[0] == 0)) || 
+		  			  ((arr1[1] == 0) && (arr2[1] == 0) && (arr3[1] == 0)) ||
+	                   ((arr1[2] == 0) && (arr2[2] == 0) && (arr3[2] == 0))){
+						equis.juegos = 0 ;
+						alert("triqui por colubna gana 0");
+				    }else if (((arr1[0]==0) && (arr2[1]==0) && (arr3[2]==0)) ||
+			        		  ((arr1[2]==0) && (arr2[1]==0) && (arr3[0]==0))) {
+								alert(" triqui por diagonal gana 0");
+								equis.juegos = 0 ;
+							}
+							else{
+								equis.juegos = equis.juegos - 1 ;
+								}
+		turno = turno + 1 ;						
+		}
+		//else que cambia el turno 
+	}else{
+		while(turno > 0){
+			arr3[2]=1;
+			console.log(turno);
+			this.innerHTML += equixx;
+			if (((arr1[0] == 1) && (arr1[1] == 1) && (arr1[2] == 1)) || 
+				((arr2[0] == 1) && (arr2[1] == 1) && (arr2[2] == 1)) ||
+	 			((arr3[0] == 1) && (arr3[1] == 1) && (arr3[2] == 1))) {
 					circulo.juegos = 0;
-					alert(" triqui por diagonal gana la x");
-				}
-				else {
-					turno = 1;
-					circulo.juegos = circulo.juegos - 1;
-					alert("marrano  x!!!");
+					alert("triqui por fila gana la x");
+						}else if (((arr1[0] == 1) && (arr2[0] == 1) && (arr3[0] == 1)) || 
+		 			 ((arr1[1] == 1) && (arr2[1] == 1) && (arr3[1] == 1)) ||
+		  			 ((arr1[2] == 1) && (arr2[2] == 1) && (arr3[2] == 1)))
+						{
+						circulo.juegos = 0;
+						alert("triqui por colubna gana la x");
+					}else if (((arr1[0]==1) && (arr2[1]==1) && (arr3[2]==1)) ||
+							  ((arr1[2]==1) && (arr2[1]==1) && (arr3[0]==1))) {
+								circulo.juegos = 0;
+								alert(" triqui por diagonal gana la x");
+							}
+							else {
+								circulo.juegos = circulo.juegos - 1
 					}
-}
-}
-
+		turno = turno - 1 ;			
+		}
+	}
+	}
+	if ((equis.juegos == 0) && (circulo.juegos == 0)) {
+		alert("Los turnos expiraron");
+	};
 	</script>
 </body>
 </html>
